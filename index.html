@@ -12,9 +12,19 @@
     <div
         style="margin: 20px; text-align:center; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
         <h1>Meow~</h1>
-        <img src="img/bincat.jpg" alt="/bin/cat" style="width: auto;max-width: 100%;" />
+        <img id="catimg" src="img/bincat.jpg" alt="/bin/cat" style="width: auto;max-width: 100%;"
+            onclick="changeImg()" />
         <!-- TODO... -->
     </div>
+    <script>
+        const imgList = ["bincat.jpg", "bincat2.jpg"];
+
+        function changeImg() {
+            let obj = document.getElementById("catimg");
+            let imgNow = obj.getAttribute("src").replace("img/", "");
+            obj.setAttribute("src", "img/" + imgList[imgList.indexOf(imgNow) ^ 0x01]);
+        }
+    </script>
 </body>
 
 </html>
